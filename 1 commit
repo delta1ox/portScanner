@@ -1,0 +1,17 @@
+import socket
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.settimeout(5)
+#AF_INET means its ipv4 and SOCK_STREAM means the type of connection, here weare using tcp connection
+
+host = input("Enter the ip address to be scanned(ipv4)-  ")
+port = int(input("Enter the port number to be scanned-  "))
+
+
+def portScanner(port):
+    if s.connect_ex((host, port)):
+        print("The port is closed")
+    else:
+        print("The port is open")
+
+portScanner(port)
